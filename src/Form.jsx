@@ -3,10 +3,17 @@ const Form = ({ todos, setTodos }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const value = event.target.todo.value;
+        const newTodo = {
+            title: value,
+            id: self.crypto.randomUUID(),
+            is_completed: false,
+        }
+        // update my todo state
         setTodos((prevTodos) => [
-            ...prevTodos,
-            { title: value, id: self.crypto.randomUUID(), is_completed: false },
-        ])
+            ...prevTodos, newTodo])
+
+        const updatedTodoList = JSON.stringify([...todos, newTodo])
+        localStorage.setItem("todos", updatedTodoList);
         event.target.reset();
     };
 
