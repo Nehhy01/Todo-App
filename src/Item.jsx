@@ -89,3 +89,17 @@ return (
 );
 }
 export default Item;
+
+
+
+const completeTodo = () => {
+  setTodos((prevTodos) =>
+    prevTodos.map((todo) =>
+      todo.id === item.id ? { ...todo, is_completed: !todo.is_completed } : todo
+    )
+  );
+
+  // Update localStorage after marking todo as completed
+  const updatedTodos = JSON.stringify(todos);
+  localStorage.setItem("todos", updatedTodos);
+};
