@@ -27,6 +27,8 @@ function Item({ item, setTodos }) {
     setEditing(false)
   }
   const handleInputBlur = () => {
+            const updatedTodos = JSON.stringify(todos)
+        localStorage.setItem("todos", updatedTodos);
     setEditing(false)
   }
   const handleInputChange = (event) => {
