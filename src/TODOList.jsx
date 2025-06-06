@@ -9,5 +9,8 @@ function TODOList({ todos, setTodos }) {
         <p>Seems lonely in here, what are you up to?</p>}
     </ol>
   );
+
+          const updatedTodos = JSON.stringify(todos)
+        localStorage.setItem("todos", updatedTodos);
 }
 export default TODOList;
