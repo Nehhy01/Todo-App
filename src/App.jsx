@@ -10,7 +10,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
-    if(storedTodos) {
+    if (storedTodos) {
       setTodos(JSON.parse(storedTodos))
     }
   }, [])
@@ -27,7 +27,7 @@ function App() {
       <Form todos={todos} setTodos={setTodos} />
       <TODOList todos={todos} setTodos={setTodos} />
     </div>
-  )
+  );
 }
 
 export default App;     
