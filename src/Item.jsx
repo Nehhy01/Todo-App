@@ -14,9 +14,11 @@ function Item({ item, setTodos }) {
     ))
   }
   const handleDelete = () => {
-    setTodos((Todos) => (
-      Todos.filter((todo) => todo.id !== item.id)
-    ))
+    setTodos((Todos) => Todos.filter((todo) => todo.id !== item.id))
+    const updatedTodos = JSON.stringify(
+   todos.filter((todo) => todo.id !== item.id))
+    localStorage.setItem("todos", updatedTodos);
+
   }
   const handleEdit = () => {
     setEditing(true)
@@ -24,8 +26,10 @@ function Item({ item, setTodos }) {
 
   const handleInputSubmit = (event) => {
     event.preventDefault();
+
     const updatedTodos = JSON.stringify(todos)
     localStorage.setItem("todos", updatedTodos);
+
     setEditing(false)
   }
 
@@ -34,7 +38,7 @@ function Item({ item, setTodos }) {
     localStorage.setItem("todos", updatedTodos);
     setEditing(false)
   }
-  
+
   const handleInputChange = (event) => {
     setTodos((prevTodos) =>
       prevTodos.map(todo => (item.id === todo.id ? { ...todo, title: event.target.value } : todo)

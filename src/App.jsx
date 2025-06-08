@@ -4,10 +4,16 @@ import Header from './Header'
 import TODOHero from './TODOHero';
 import TODOList from './TODOList';
 import Form from './Form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if(storedTodos) {
+      setTodos(JSON.parse(storedTodos))
+    }
+  }, [])
 
   const todos_completed = todos.filter(
     (todo) => todo.is_completed === true
