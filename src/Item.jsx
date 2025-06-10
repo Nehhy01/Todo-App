@@ -70,7 +70,8 @@ function Item({ item, setTodos }) {
 
 
 
-        </form>) : (<><button className="todo_items_left" onClick={completeTodo}>
+        </form>) : (
+          <><button className="todo_items_left" onClick={completeTodo}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill={item.is_completed ? "#22C55E" : "none"} stroke={item.is_completed ? "none" : "#22C55E"} d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-q2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8" /></svg>
           <p style={{ textDecoration: item.is_completed ? "line-through" : "none" }}>{item.title}</p>
         </button>
