@@ -94,6 +94,3 @@ function Item({ item, setTodos }) {
   );
 }
 export default Item;
-
-
-
